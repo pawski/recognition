@@ -1,0 +1,9 @@
+package: .
+import:
+- package: github.com/Azure/azure-sdk-for-go
+  version: ^10.2.1-beta
+  subpackages:
+  - v10.2.1-beta
+- package: github.com/disintegration/imaging
+  version: ^1.2.1
+- package: golang.org/x/image

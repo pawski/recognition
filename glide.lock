@@ -1,0 +1,16 @@
+hash: 43ac3a97889caee66b2f34b88b92682268c3868c9ede55add1a75d7af8f12491
+updated: 2017-08-24T19:22:15.91752773+02:00
+imports:
+- name: github.com/Azure/azure-sdk-for-go
+  version: 57db66900881e9fd21fd041a9d013514700ecab3
+  subpackages:
+  - v10.2.1-beta
+- name: github.com/disintegration/imaging
+  version: a5858022df0e1734a59f973fffe3f87b51c087ed
+- name: golang.org/x/image
+  version: 426cfd8eeb6e08ab1932954e09e3c2cb2bc6e36d
+  subpackages:
+  - bmp
+  - tiff
+  - tiff/lzw
+testImports: []
