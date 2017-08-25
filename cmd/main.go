@@ -24,35 +24,16 @@ func main() {
 
 	done := make(chan bool, 1)
 
-	go func(src image.Image){
-		transform(src, "blur")
-		done <- true
-	}(src)
+	transformations := []string{"blur", "gray_scale", "contrast", "sharpen", "invert", "emboss"}
 
-	go func(src image.Image, done chan bool) {
-		transform(src, "gray_scale")
-		done <- true
-	}(src, done)
-
-	go func(src image.Image) {
-		transform(src, "contrast")
-		done <- true
-	}(src)
-
-	go func(src image.Image) {
-		transform(src, "sharpen")
-		done <- true
-	}(src)
-
-	go func(src image.Image) {
-		transform(src, "invert")
-		done <- true
-	}(src)
-
-	go func(src image.Image) {
-		transform(src, "emboss")
-		done <- true
-	}(src)
+	for _, transformationType := range transformations {
+		log.Println(transformationType)
+		go func(src image.Image, transformationType string){
+			log.Println(transformationType)
+			transform(src, transformationType)
+			done <- true
+		}(src, transformationType)
+	}
 
 	for i := 0; i < 6; i++ {
 		select {
